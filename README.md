@@ -6,6 +6,8 @@ Jaccard Similarity Coefficient Index Stream Transform
 
 ## SYNOPSIS
 
+### Log CSV to Links CSV
+
 ```js
 var JaccardStream = require("jaccard-stream");
 var fs = require("fs");
@@ -20,6 +22,26 @@ var jaccard = JaccardStream();
 var stringify = csv.stringify({header: true});
 
 var write = fs.createWriteStream("jaccard.csv");
+
+read.pipe(parse).pipe(jaccard).pipe(stringify).pipe(write);
+```
+
+### Log JSON to Links JSON
+
+```js
+var JaccardStream = require("jaccard-stream");
+var fs = require("fs");
+var ndjson = require("ndjson");
+
+var read = fs.createReadStream("sample/array-stream.json", "utf-8");
+
+var parse = ndjson.parse();
+
+var jaccard = JaccardStream();
+
+var stringify = ndjson.stringify();
+
+var write = fs.createWriteStream("jaccard.json");
 
 read.pipe(parse).pipe(jaccard).pipe(stringify).pipe(write);
 ```
