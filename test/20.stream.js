@@ -17,7 +17,7 @@ describe(TITLE, function() {
     fs.createReadStream("sample/array-stream.json", "utf-8")
       .pipe(ndjson.parse())
       .pipe(JaccardStream({array: true}))
-o      .pipe(ndjson.stringify())
+      .pipe(ndjson.stringify())
       .pipe(concat(then));
 
     function then(text) {
