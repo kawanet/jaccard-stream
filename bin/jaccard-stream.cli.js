@@ -18,13 +18,13 @@ function CLI(opts, input, output) {
   });
 
   // read first line header when -N given
-  optI.columns = !!param.N;
+  if (param.N) optI.columns = true;
 
   // output CSV header when -n given
-  optO.header = !!param.n;
+  if (param.n) optO.header = true;
 
   // array mode when -n NOT given
-  optJ.array = !param.n;
+  if (!param.n) optJ.array = true;
 
   var parse;
   if (param.J) parse = _require("ndjson").parse(optI);

@@ -52,10 +52,10 @@ read.pipe(parse).pipe(jaccard).pipe(stringify).pipe(write);
 $ npm install jaccard-stream csv ndjson
 $ PATH=./node_modules/.bin:$PATH
 $ head node_modules/jaccard-stream/sample/*.*
-$ jaccard-stream -CNc sample/with-header.csv
-$ jaccard-stream -Cc sample/without-header.csv
-$ jaccard-stream -Jj sample/array-stream.json 
-$ jaccard-stream -Jjn sample/object-stream.json 
+$ jaccard-stream -CNcn node_modules/jaccard-stream/sample/with-header.csv
+$ jaccard-stream -Cc node_modules/jaccard-stream/sample/without-header.csv
+$ jaccard-stream -Jj node_modules/jaccard-stream/sample/array-stream.json 
+$ jaccard-stream -Jjn node_modules/jaccard-stream/sample/object-stream.json 
 ```
 
 ## SEE ALSO

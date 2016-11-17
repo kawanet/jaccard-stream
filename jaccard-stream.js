@@ -2,7 +2,7 @@
 
 var util = require("util");
 var Transform = require("stream").Transform;
-var Jaccard = require("../jaccard-index");
+var Jaccard = require("jaccard-index");
 
 module.exports = JaccardStream;
 
