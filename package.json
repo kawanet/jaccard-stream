@@ -1,0 +1,46 @@
+{
+  "name": "jaccard-stream",
+  "description": "Jaccard Similarity Coefficient Index Stream Transform",
+  "version": "0.1.0",
+  "author": "@kawanet",
+  "bin": {
+    "jaccard-stream": "bin/jaccard-stream.cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/kawanet/jaccard-stream/issues"
+  },
+  "dependencies": {
+    "jaccard-index": "kawanet/jaccard-index"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "csv": "^1.1.0",
+    "jshint": "^2.9.4",
+    "mocha": "^3.1.2",
+    "ndjson": "^1.4.3"
+  },
+  "homepage": "https://github.com/kawanet/jaccard-stream#readme",
+  "jshintConfig": {
+    "node": true,
+    "undef": true
+  },
+  "keywords": [
+    "collaborative",
+    "csv",
+    "jaccard",
+    "similarity",
+    "stream"
+  ],
+  "license": "MIT",
+  "main": "jaccard-stream.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawanet/jaccard-stream.git"
+  },
+  "scripts": {
+    "fixpack": "fixpack",
+    "jshint": "./node_modules/.bin/jshint *.js* bin test",
+    "mocha": "./node_modules/.bin/mocha test",
+    "test": "npm run jshint && npm run mocha"
+  }
+}
