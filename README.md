@@ -6,7 +6,7 @@ Jaccard Similarity Coefficient Index Stream Transform
 
 ## SYNOPSIS
 
-### Log CSV to Links CSV
+### Transforming Log CSV to Links CSV
 
 ```js
 var JaccardStream = require("jaccard-stream");
@@ -26,7 +26,7 @@ var write = fs.createWriteStream("jaccard.csv");
 read.pipe(parse).pipe(jaccard).pipe(stringify).pipe(write);
 ```
 
-### Log JSON to Links JSON
+### Transforming Log JSON to Links JSON
 
 ```js
 var JaccardStream = require("jaccard-stream");
