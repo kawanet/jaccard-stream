@@ -25,10 +25,16 @@ function JaccardStream(options) {
   var jaccard = new Jaccard(options);
   jaccard.expire = 0;
   jaccard.getLog = getLog;
-  if (!options.filter) jaccard.filter = filter;
+  if (!options.filter) {
+    jaccard.filter = options.array ? arrayFilter : objectFilter;
+  }
 
-  function filter(index, sourceId, targetId) {
+  function arrayFilter(index, sourceId, targetId) {
     return [sourceId, targetId, index];
+  }
+
+  function objectFilter(index, sourceId, targetId) {
+    return {source: sourceId, target: targetId, value: index};
   }
 
   function _transform(data, encoding, callback) {

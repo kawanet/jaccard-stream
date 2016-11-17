@@ -16,13 +16,15 @@ function CLI(opts, input, output) {
   if (first === "-") opts.split("").forEach(function(c) {
     param[c] = 1;
   });
-  if (param.N) {
-    optI.columns = true;
-  }
-  if (param.n) {
-    optJ.filter = filter;
-    optO.header = true;
-  }
+
+  // read first line header when -N given
+  optI.columns = !!param.N;
+
+  // output CSV header when -n given
+  optO.header = !!param.n;
+
+  // array mode when -n NOT given
+  optJ.array = !param.n;
 
   var parse;
   if (param.J) parse = _require("ndjson").parse(optI);
@@ -52,10 +54,6 @@ function CLI(opts, input, output) {
   var write = output ? fs.createWriteStream(output) : process.stdout;
 
   read.pipe(parse).pipe(jaccard).pipe(stringify).pipe(write);
-}
-
-function filter(index, sourceId, targetId) {
-  return {source: sourceId, target: targetId, value: index};
 }
 
 function _require(name) {
