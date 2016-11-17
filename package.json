@@ -10,7 +10,7 @@
     "url": "https://github.com/kawanet/jaccard-stream/issues"
   },
   "dependencies": {
-    "jaccard-index": "kawanet/jaccard-index"
+    "jaccard-index": "^0.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",

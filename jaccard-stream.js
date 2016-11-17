@@ -20,7 +20,6 @@ function JaccardStream(options) {
   var stream = this;
   stream._transform = _transform;
   stream._flush = _flush;
-  //stream.on("finish", onFinish);
 
   var jaccard = new Jaccard(options);
   jaccard.expire = 0;
