@@ -38,18 +38,19 @@ function CLI(opts, input, output) {
   if (param.j) stringify = _require("ndjson").stringify(optS);
   if (param.c || param.t) stringify = _require("csv").stringify(optS);
 
-  if (!parse || !stringify) {
+  if (!parse || !stringify || param.h) {
     var cmd = process.argv[1].split("/").pop();
-    console.warn("Usage: " + cmd + " [-CJcjNn] [input] [output]");
+    console.warn("Usage: " + cmd + " [-CTJctjNnh] [input] [output]");
     console.warn("");
-    console.warn("  C: input format is CSV file (comma separated values)");
-    console.warn("  T: input format is TSV file (tab separated values)");
-    console.warn("  J: input format is newline-delimited JSON stream (ndjson)");
-    console.warn("  c: output format is CSV file");
-    console.warn("  t: output format is TSV file");
-    console.warn("  j: output format is newline-delimited JSON stream (ndjson)");
+    console.warn("  C: input is CSV file (comma separated values)");
+    console.warn("  T: input is TSV file (tab separated values)");
+    console.warn("  J: input is newline-delimited JSON stream (ndjson)");
+    console.warn("  c: output is CSV file");
+    console.warn("  t: output is TSV file");
+    console.warn("  j: output is newline-delimited JSON stream (ndjson)");
     console.warn("  N: detect column names from the first line of input CSV");
     console.warn("  n: output with named columns");
+    console.warn("  h: show this message");
     process.exit(1);
   }
 

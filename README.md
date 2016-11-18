@@ -48,14 +48,32 @@ read.pipe(parse).pipe(jaccard).pipe(stringify).pipe(write);
 
 ## CLI
 
-```sh
+Usage:
+
+```
 $ npm install jaccard-stream csv ndjson
 $ PATH=./node_modules/.bin:$PATH
-$ head node_modules/jaccard-stream/sample/*.*
-$ jaccard-stream -CNcn node_modules/jaccard-stream/sample/with-header.csv
-$ jaccard-stream -Cc node_modules/jaccard-stream/sample/without-header.csv
-$ jaccard-stream -Jj node_modules/jaccard-stream/sample/array-stream.json 
-$ jaccard-stream -Jjn node_modules/jaccard-stream/sample/object-stream.json 
+$ jaccard-stream -h
+Usage: jaccard-stream [-CTJctjNnh] [input] [output]
+
+  C: input is CSV file (comma separated values)
+  T: input is TSV file (tab separated values)
+  J: input is newline-delimited JSON stream (ndjson)
+  c: output is CSV file
+  t: output is TSV file
+  j: output is newline-delimited JSON stream (ndjson)
+  N: detect column names from the first line of input CSV
+  n: output with named columns
+  h: show this message
+```
+
+Try it with sample files:
+
+```sh
+$ jaccard-stream -CNcn sample/with-header.csv
+$ jaccard-stream -Cc sample/without-header.csv
+$ jaccard-stream -Jj sample/array-stream.json 
+$ jaccard-stream -Jjn sample/object-stream.json 
 ```
 
 ## SEE ALSO
