@@ -1,7 +1,7 @@
 {
   "name": "jaccard-stream",
   "description": "Jaccard Similarity Coefficient Index Stream Transform",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "@kawanet",
   "bin": {
     "jaccard-stream": "bin/jaccard-stream.cli.js"

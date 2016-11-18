@@ -9,6 +9,8 @@ Jaccard Similarity Coefficient Index Stream Transform
 ### Event Model
 
 ```js
+var JaccardStream = require("jaccard-stream");
+
 var logs = [
   ["item1", "user1"],
   ["item1", "user2"],
@@ -35,6 +37,14 @@ logs.forEach(function(row) {
 });
 
 jaccard.end(); // end of input
+```
+
+Output:
+
+```json
+{"source":"item1","target":"item2","value":0.25}
+{"source":"item1","target":"item3","value":0.6666666666666666}
+{"source":"item2","target":"item3","value":0.2}
 ```
 
 ### Stream Model: Log CSV to Links CSV
