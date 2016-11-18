@@ -6,7 +6,38 @@ Jaccard Similarity Coefficient Index Stream Transform
 
 ## SYNOPSIS
 
-### Transforming Log CSV to Links CSV
+### Event Model
+
+```js
+var logs = [
+  ["item1", "user1"],
+  ["item1", "user2"],
+  ["item2", "user2"],
+  ["item2", "user3"],
+  ["item2", "user4"],
+  ["item3", "user1"],
+  ["item3", "user2"],
+  ["item3", "user5"]
+];
+
+var jaccard = JaccardStream();
+
+jaccard.on("data", function(row) {
+  console.warn(row); // output
+});
+
+jaccard.on("end", function() {
+  // end of output
+});
+
+logs.forEach(function(row) {
+  jaccard.write(row); // input
+});
+
+jaccard.end(); // end of input
+```
+
+### Stream Model: Log CSV to Links CSV
 
 ```js
 var JaccardStream = require("jaccard-stream");
@@ -26,7 +57,7 @@ var write = fs.createWriteStream("jaccard.csv");
 read.pipe(parse).pipe(jaccard).pipe(stringify).pipe(write);
 ```
 
-### Transforming Log JSON to Links JSON
+### Stream Model: Log JSON to Links JSON
 
 ```js
 var JaccardStream = require("jaccard-stream");
